@@ -19,7 +19,8 @@ body {
 body {
   background: #101010;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow: hidden; }
 
 .row + .row {
   margin-top: 1%; }
@@ -138,27 +139,36 @@ ul {
   background: #9F4935; }
 
 .nav-item {
-  width: 50%;
+  width: 66%;
   text-align: right;
   padding: 2%;
   padding-top: 4%;
   padding-bottom: 4%;
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  transition: all 1s; }
 
 .nav-item:first-child {
-  padding-top: 50%; }
+  border-top-right-radius: 7px; }
 
 .nav-item:last-child {
-  height: 50vh; }
+  border-bottom-right-radius: 7px; }
+
+.nav-item:hover {
+  opacity: 0.75;
+  padding-right: 7% !important;
+  margin-left: -2% !important;
+  border-radius: 7px;
+  cursor: pointer; }
 
 .floatTop {
   position: relative;
-  z-index: 6; }
+  z-index: 6;
+  pointer-events: none; }
 
 .floatBehind {
   position: relative;
   z-index: 5;
-  margin-top: -76% !important; }
+  margin-top: -50% !important; }
 
 .overlay {
   z-index: 2;
