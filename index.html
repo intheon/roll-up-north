@@ -12,16 +12,18 @@
 	<!-- 1/2 the logo + nav | 1/2 main -->
 	<div class="row">
 
-		<!-- overlay -->
-
+		<!-- overlays -->
 		<div class="overlay"></div>
+		<div class="beers"></div>
 
 		<!-- video -->
 		<div class="behind-scenes-video">
-		<video muted loop autoplay class="full-screen">
-			<source src="vid/skate.mp4" type="video/mp4">
-		</video>
+			<video muted loop autoplay class="full-screen">
+				<source src="vid/skate.mp4" type="video/mp4">
+			</video>
 		</div>
+
+
 
 
 		<!-- left hand side shiz -->
@@ -34,16 +36,16 @@
 			<div class="row">
 				<div class="column-12 floatBehind">
 					<div class="nav-container">
-						<div class="nav-item blue">watch vid</div>
-						<div class="nav-item orange">meet bros</div>
-						<div class="nav-item green">locate a skate</div>
+						<div class="nav-item blue" id="watchVid">watch vid</div>
+						<div class="nav-item orange" id="aboutPeeps" >meet bros</div>
+						<div class="nav-item green" id="skateMap">locate a skate</div>
 					</div class="nav-container">
 				</div>
 			</div>
 		</div>
 
 		<!-- right hand side shiz -->
-		<div class="column-7 top">
+		<div class="column-7 top" id="main-pane">
 
 			<!-- words -->
 			<div class="words">
@@ -52,6 +54,10 @@
 				<h4>shred or be dead</h4>
 				<h5>rails or bail</h5>
 				<h1>Roll up North Baby</h1>
+			</div>
+
+			<div class="watch-vid">
+				<iframe src="https://www.youtube.com/embed/z2eDvqT_4Gs" frameborder="0" allowfullscreen class="scaleVideo"></iframe>
 			</div>
 		</div>
 
