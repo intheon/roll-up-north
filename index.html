@@ -13,11 +13,12 @@
 	<div class="row">
 
 		<!-- overlays -->
-		<div class="overlay"></div>
-		<div class="beers"></div>
+		<div class="overlay hideable"></div>
+		<div class="watch-vid-overlay hideable"></div>
+		<div class="skate-map-overlay hideable"></div>
 
 		<!-- video -->
-		<div class="behind-scenes-video">
+		<div class="behind-scenes-video hideable">
 			<video muted loop autoplay class="full-screen">
 				<source src="vid/skate.mp4" type="video/mp4">
 			</video>
@@ -37,7 +38,6 @@
 				<div class="column-12 floatBehind">
 					<div class="nav-container">
 						<div class="nav-item blue" id="watchVid">watch vid</div>
-						<div class="nav-item orange" id="aboutPeeps" >meet bros</div>
 						<div class="nav-item green" id="skateMap">locate a skate</div>
 					</div class="nav-container">
 				</div>
@@ -48,7 +48,7 @@
 		<div class="column-7 top" id="main-pane">
 
 			<!-- words -->
-			<div class="words">
+			<div class="words hideable">
 				<h2>skate or hate</h2>
 				<h3>ride or die</h3>
 				<h4>shred or be dead</h4>
@@ -56,8 +56,14 @@
 				<h1>Roll up North Baby</h1>
 			</div>
 
-			<div class="watch-vid">
+			<div class="watch-vid hideable">
 				<iframe src="https://www.youtube.com/embed/z2eDvqT_4Gs" frameborder="0" allowfullscreen class="scaleVideo"></iframe>
+			</div>
+
+			<div class="skate-map hideable">
+				<h1>Where the hell can I skate?</h1>
+				<div id="skate-map"></div>
+				<div id="talk-box"></div>
 			</div>
 		</div>
 

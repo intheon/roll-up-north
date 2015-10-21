@@ -7,28 +7,22 @@ $(document).ready(function(){
 
 function turnDownLights(which)
 {
-	$(".overlay").fadeOut(function(){
-		$(this).hide();
-	});
-	$(".behind-scenes-video").fadeOut(function(){
-		$(this).hide();
-	});
-	$(".words").fadeOut(function(){
+	$(".hideable").fadeOut(function(){
 		$(this).hide();
 	});
 
 	switch (which)
 	{
 		case "watchVid":
-			$(".beers").fadeIn(function(){
+			$(".watch-vid-overlay").fadeIn(function(){
 				$(".watch-vid").fadeIn();
 			});
 		break;
 
-		case "aboutPeeps":
-		break;
-
 		case "skateMap":
+			$(".skate-map-overlay").fadeIn(function(){
+				$(".skate-map").fadeIn();
+			});
 		break;
 
 		default:

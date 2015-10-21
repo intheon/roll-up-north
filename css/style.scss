@@ -324,7 +324,7 @@ ul
 	overflow: 				hidden;
 }
 
-.beers
+.watch-vid-overlay
 {
 	display: 				none;
 	z-index: 				2;
@@ -332,4 +332,20 @@ ul
 	width: 					100%;
 	height: 				100%;
 	background: 			$blue;
+}
+
+.skate-map
+{
+	display: 				none;
+}
+
+
+.skate-map-overlay
+{
+	display: 				none;
+	z-index: 				2;
+	position: 				absolute;
+	width: 					100%;
+	height: 				100%;
+	background: 			$green;
 }
