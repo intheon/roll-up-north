@@ -5,7 +5,7 @@ html, body
 }
 
 // --- vars
-$background:				#E0E0E1;
+$background:				#101010;
 $headerColour:				#000000;
 $noPadding:					0;
 $smallPadding:				1%;
@@ -16,9 +16,10 @@ $defaultFontSize:			1em;
 $white:  					#FFFFFF;
 $grey:  					#333E47;
 $black:						#a3aaae;
-$blue:						#00A19A;
-$green:						#0095D1;
-$orange:  					#FCBF00;
+$blue:						#245164;
+$green:						#267245;
+$orange:  					#9F6D35;
+$red:						#9F4935;
 
 $customFont:				Arial;
 
@@ -130,12 +131,13 @@ body
 	width:					100%; 
 }
 
-h2,h3,h4
+h1,h2,h3,h4,h5
 {
 	padding:				$noPadding;
 	margin:					$noPadding;
 	font-weight: 			0;
 	letter-spacing:			$letterSpacing;
+	color: 					$white;
 }
 
 .center
@@ -162,4 +164,112 @@ ul
 	font-family:			$customFont;
 	font-size:				1.21em;
 	padding-left:			3.2%;
+}
+
+.behind-scenes-video
+{
+   position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.full-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .full-screen {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .full-screen {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .behind-scenes-video {
+    background: url('../img/videoframe.jpg') center center / cover no-repeat;
+  }
+
+  .full-screen {
+    display: none;
+  }
+}
+
+
+.top
+{
+	position: 				relative;
+	z-index: 				3;
+}
+
+.green
+{
+	background:  			$green;
+}
+.blue
+{
+	background:  			$blue;
+}
+.orange
+{
+	background:  			$orange;
+}
+.red
+{
+	background:  			$red;
+}
+
+.nav-item
+{
+	width: 					50%;
+	text-align: 			right;
+	padding: 				2%;
+	padding-top: 			4%;
+	padding-bottom: 		4%;
+	font-size: 				1.4em;
+}
+.nav-item:first-child
+{
+	padding-top: 			50%;
+}
+.nav-item:last-child
+{
+	height: 				50vh;
+}
+
+
+.floatTop
+{
+	position: 				relative;
+	z-index: 				6;
+}
+
+.floatBehind
+{
+	position: 				relative;
+	z-index: 				5;
+	margin-top: 			-76% !important;
+}
+
+.overlay
+{
+	z-index: 				2;
+	position: 				absolute;
+	width: 					100%;
+	height: 				100%;
+	background: 			url(../img/test2.png);
 }
