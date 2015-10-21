@@ -1,0 +1,165 @@
+html, body
+{
+	margin:					0;
+	padding:				0;
+}
+
+// --- vars
+$background:				#E0E0E1;
+$headerColour:				#000000;
+$noPadding:					0;
+$smallPadding:				1%;
+$largePadding:				2%;
+$letterSpacing:	        	2px;
+$defaultFontSize:			1em;
+
+$white:  					#FFFFFF;
+$grey:  					#333E47;
+$black:						#a3aaae;
+$blue:						#00A19A;
+$green:						#0095D1;
+$orange:  					#FCBF00;
+
+$customFont:				Arial;
+
+// --- extends
+
+%clearfix:after
+{
+	display:				block;
+	clear:					both;
+	content:				"";
+}
+
+%center
+{
+	margin-left: 			auto !important;
+    margin-right: 			auto !important;
+    display:				inline-block !important;
+    text-align:				center;
+}
+
+%fancyFont
+{
+	font-family: 			Arial;
+}
+
+%normalFont
+{
+	font-family:			Arial;
+}
+
+body
+{
+	@extend 				%normalFont;
+	background:				$background;
+	margin:   				$noPadding;
+	padding:				$noPadding;
+}
+
+.row
+{
+	@extend 				%clearfix;
+
+	& + &
+	{
+		margin-top:			$smallPadding;
+	}
+}
+
+[class^="column-"]
+{
+	float:					left;
+	margin-right:			$largePadding;
+	-webkit-box-sizing:		border-box; 
+    -moz-box-sizing:		border-box; 
+    box-sizing:				border-box;
+ 
+    &:last-child 
+    {
+        margin-right:		0%;
+    }
+}
+
+.column-1
+{ 	
+	width:					(100% / 12) - ($largePadding * 11 / 12);
+}
+.column-2
+{ 	
+	width:					(100% / 6) - ($largePadding * 10 / 12); 
+}
+.column-3
+{ 	
+	width:					(100% / 4) - ($largePadding * 9 / 12); 
+}
+.column-4
+{ 	
+	width:					(100% / 3) - ($largePadding * 8 / 12); 
+}
+.column-5
+{ 	
+	width:					(100% / 2.4) - ($largePadding * 7 / 12); 
+}
+.column-6
+{ 	
+	width:					(100% / 2) - ($largePadding * 6 / 12); 
+}
+.column-7
+{ 	
+	width:					(100% / 1.714285714285714) - ($largePadding * 5 / 12); 
+}
+.column-8
+{ 	
+	width:					(100% / 1.5) - ($largePadding * 4 / 12); 
+}
+.column-9
+{ 	
+	width:					(100% / 1.333333333333333) - ($largePadding * 3 / 12); 
+}
+.column-10
+{ 	
+	width:					(100% / 1.2) - ($largePadding * 2 / 12); 
+}
+.column-11
+{ 	
+	width:					(100% / 1.090909090909091) - ($largePadding * 1 / 12); 
+}
+.column-12
+{ 	
+	width:					100%; 
+}
+
+h2,h3,h4
+{
+	padding:				$noPadding;
+	margin:					$noPadding;
+	font-weight: 			0;
+	letter-spacing:			$letterSpacing;
+}
+
+.center
+{
+	@extend 				%center;
+}
+
+a
+{
+	text-decoration:		none;
+	color:					$white !important;
+}
+
+p
+{
+	color:					$white;
+	font-family:			$customFont;
+	font-size:				1.1em;
+}
+
+ul
+{
+	color:					$white;
+	font-family:			$customFont;
+	font-size:				1.21em;
+	padding-left:			3.2%;
+}
