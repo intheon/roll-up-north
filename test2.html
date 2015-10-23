@@ -3,7 +3,7 @@
 <head>
 	<title>roll up north</title>
 <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
@@ -58,15 +58,42 @@
 
 			<div class="watch-vid hideable">
 				<iframe src="https://www.youtube.com/embed/z2eDvqT_4Gs" frameborder="0" allowfullscreen class="scaleVideo"></iframe>
-				<div class="created-by"><a href="http://intheon.uk" target="_blank">Created by Benjamin | intheon.uk | Available for hire!</a></div>
 			</div>
 
 			<div class="skate-map hideable">
 				<h1>Where the hell can I skate?</h1>
-				<div id="skate-map"></div>
+				<div id="skate-map">
 					
+
+
+    <div id="map" style="width:500px; height:300px"></div>
+    <script type="text/javascript">
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlZAd4jnOH6YDu6uPyYWSrlQ9ceQs9oJw&callback=initMap">
+    </script>
+
+				</div>
+					
+
+
+
+
+
+
+
+
+
 				<div id="talk-box"></div>
-				<div class="created-by"><a href="http://intheon.uk" target="_blank">Created by Benjamin | intheon.uk | Available for hire!</a></div>
 			</div>
 		</div>
 
@@ -81,8 +108,6 @@
 <script type="text/javascript" src="js/underscore.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlZAd4jnOH6YDu6uPyYWSrlQ9ceQs9oJw&callback=initMap" async defer></script>-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlZAd4jnOH6YDu6uPyYWSrlQ9ceQs9oJw" async defer></script>
-
 
 </body>
 </html>

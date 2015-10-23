@@ -226,4 +226,16 @@ ul {
   height: 100%;
   background: #267245; }
 
+#skate-map {
+  width: 100% !important;
+  height: 94vh;
+  position: absolute !important;
+  z-index: 2390 !important; }
+
+.created-by {
+  font-size: 1.8em;
+  position: fixed;
+  bottom: 0;
+  left: 0; }
+
 /*# sourceMappingURL=style.css.map */

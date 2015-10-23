@@ -206,7 +206,8 @@ ul
 }
 
 @media (max-width: 767px) {
-  .behind-scenes-video {
+  .behind-scenes-video 
+  {
     background: url('../img/videoframe.jpg') center center / cover no-repeat;
   }
 
@@ -337,6 +338,7 @@ ul
 .skate-map
 {
 	display: 				none;
+
 }
 
 
@@ -348,4 +350,21 @@ ul
 	width: 					100%;
 	height: 				100%;
 	background: 			$green;
+}
+
+#skate-map
+{
+	width:					100%!important; 
+	height:					94vh;
+	position: 				absolute !important; 
+	z-index: 				2390 !important; 
+
+}
+
+.created-by
+{
+	font-size:				1.8em;
+	position:				fixed;
+	bottom:					0;
+	left:					0;
 }
