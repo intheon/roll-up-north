@@ -244,6 +244,9 @@ ul {
   bottom: 0;
   left: 0; }
 
+.skate-location {
+  color: black; }
+
 @media (max-width: 1100px) {
   .floatBehind {
     position: fixed;
