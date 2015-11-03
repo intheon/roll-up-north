@@ -213,7 +213,10 @@ ul {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #245164; }
+  background: url(../img/watch-bg.jpg);
+  background-color: #245164;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 .skate-map {
   display: none; }
@@ -224,7 +227,10 @@ ul {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #267245; }
+  background: url(../img/skate-bg.jpg);
+  background-color: #267245;
+  background-repeat: no-repeat;
+  background-position: bottom; }
 
 #skate-map {
   width: 100% !important;

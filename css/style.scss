@@ -336,7 +336,10 @@ ul
 	position: 				absolute;
 	width: 					100%;
 	height: 				100%;
-	background: 			$blue;
+	background: 			url(../img/watch-bg.jpg);
+	background-color: 		$blue;
+	background-repeat: 		no-repeat;
+	background-position: 	center;
 }
 
 .skate-map
@@ -353,7 +356,10 @@ ul
 	position: 				absolute;
 	width: 					100%;
 	height: 				100%;
-	background: 			$green;
+	background: 			url(../img/skate-bg.jpg);
+	background-color: 		$green;
+	background-repeat: 		no-repeat;
+	background-position: 	bottom;
 }
 
 #skate-map
