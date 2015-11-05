@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>roll up north</title>
-<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -47,7 +48,7 @@
 		<!-- right hand side shiz -->
 		<div class="column-8 top" id="main-pane">
 
-			<!-- words -->
+			<!-- words present on first page-->
 			<div class="words hideable">
 				<h2>skate or hate</h2>
 				<h3>ride or die</h3>
@@ -56,18 +57,36 @@
 				<h1>Roll up North Baby</h1>
 			</div>
 
+			<!-- watch the video -->
 			<div class="watch-vid hideable">
 				<iframe src="https://www.youtube.com/embed/z2eDvqT_4Gs" frameborder="0" allowfullscreen class="scaleVideo"></iframe>
 				<div class="created-by"><a href="http://intheon.uk" target="_blank">Created by Benjamin | intheon.uk | Available for hire!</a></div>
 			</div>
 
+			<!-- interactive skate map -->
 			<div class="skate-map hideable">
+
+				<!-- title -->
 				<h1 id="skate-title">Where the hell can I skate?</h1>
+
+				<!-- injected by js -->
 				<div id="skate-map"></div>
-				<div class="tip">Drag to move. Click/Tap on a marker for more info. Double Click/Tap to add a skate park</div>
+
+				<!-- speech bubble -->
+				<div class="tip bubble">
+					<div class="tip-line">Drag to move. </div>
+					<div class="tip-line">Click/Tap on a marker for more info. </div>
+					<div class="tip-line">Double Click/Tap to add a skate park </div>
+				</div>
+
+				<!-- last 3 items added -->
 				<div id="recent-box"></div>
+
+				<!-- shameless self promotion -->
 				<div class="created-by"><a href="http://intheon.uk" target="_blank">Created by Benjamin | intheon.uk | Available for hire!</a></div>
+
 			</div>
+
 		</div>
 
 	</div>
