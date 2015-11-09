@@ -1,6 +1,7 @@
 // global... im not sure why
 var map;
 var rootUrl = "http://localhost/roll-up-north/";
+var isEditing = false;
 
 // main init
 $(document).ready(function(){
@@ -112,8 +113,10 @@ function drawSkateParkData(rawData)
 	// convert crap from db into a js obj
 	var asJSON = JSON.parse(rawData);
 
-	// run through entire thing and mark it on the google map
+	// all infowindows are added to an array
+	var currentPoints = [];
 
+	// run through entire thing and mark it on the google map
 	for (var i = 0; i < asJSON.length; i++)
 	{
 		// relabel shit from obj
@@ -143,49 +146,80 @@ function drawSkateParkData(rawData)
 			</div>"
 		});
 
-		// finally add it to google map
+		// add it to google map
 		var marker = new google.maps.Marker({
 			position: latlong,
 			map: map,
 			title: lName
 		});
 
-		// and make the marker clickable
+		// and make the marker clickable so an infowindow appears
 		marker.addListener("click", function(){
 			info.open(map, marker);
 		});
+
+		// add it to the array so I know how many could be present
+		currentPoints.push({
+			marker: marker,
+			info: info
+		});
 	}
 
-	// now make the rest of the map clickable
-
-	// so that users can add their own markers
+	// allow users to add their own markers
 	google.maps.event.addListener(map, "click", function(event){
-		userAddSkatepark(event.latLng);
+		userAddSkatepark(event.latLng, currentPoints);
 	});
 }
 
-function userAddSkatepark(location)
+function dismissInfoWindows(arrayOfItems)
 {
-	// create a marker
-	var marker = new google.maps.Marker({
-		position: location,
-		map: map,
-		title: "new park"
-	});
 
-	// create a pop up
-	var request = new google.maps.InfoWindow({
-		content: "<div class='add-skate-location'>\
-			<div class='add-skate-location-heading'><input type='text' placeholder='Add title...' 'adderTitle'></div>\
-			<div class='add-skate-location-description'><textarea placeholder='Describe it...' id='adderDescription'></textarea></div>\
-			<div class='row'>\
-				<div class='add-skate-location-rating column-6'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'></div>\
-				<div class='add-skate-location-adder column-6'><input type='text' placeholder='your name' id='adderName'></div>\
-			</div>\
-		</div>"
-	});
+}
 
-	request.open(map, marker);
+function userAddSkatepark(location, currentPoints)
+{
+	if (!isEditing)
+	{
+		// create a marker
+		var marker = new google.maps.Marker({
+			position: location,
+			map: map,
+			title: "new park"
+		});
+
+		// create a pop up
+		var request = new google.maps.InfoWindow({
+			content: "<div class='add-skate-location tentative'>\
+				<div class='add-skate-location-heading'><input type='text' placeholder='Add title...' 'adderTitle'></div>\
+				<div class='add-skate-location-description'><textarea placeholder='Describe it...' id='adderDescription'></textarea></div>\
+				<div class='row'>\
+					<div class='add-skate-location-rating column-6'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'></div>\
+					<div class='add-skate-location-adder column-6'><input type='text' placeholder='your name' id='adderName'></div>\
+				</div>\
+			</div>"
+		});
+
+		// show the pop up info window
+		request.open(map, marker);
+
+		// dismiss all other info windows
+		console.log(currentPoints);
+
+		for (n = 0; n < currentPoints.length; n++)
+		{
+			currentPoints[n].info.close();
+		}
+
+
+		//currentPoints.push(request);
+
+		isEditing = true;
+	}
+	else
+	{
+		console.log("already have one open boyo");
+	}
+
 
 }
 
