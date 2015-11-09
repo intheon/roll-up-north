@@ -95,6 +95,18 @@ function getSkateParkData()
 	displayLastFewSkateParks();
 }
 
+function createStars(integer)
+{
+	var starsHTML = "";
+
+	for (var s = 0; s < integer; s++)
+	{
+		starsHTML += "<div class='star'><img src='../roll-up-north/img/star.png' width='24px'></div>";
+	}
+
+	return starsHTML;
+}
+
 function drawSkateParkData(rawData)
 {
 	// convert crap from db into a js obj
@@ -111,6 +123,7 @@ function drawSkateParkData(rawData)
 		var lLong = parseFloat(asJSON[i].location_long);
 		var lName = asJSON[i].location_name;
 		var lRating = asJSON[i].location_rating;
+		var lRatingAsStars = createStars(lRating);
 
 		// build a google friendly latlong
 		var latlong = {
@@ -119,13 +132,14 @@ function drawSkateParkData(rawData)
 		}
 
 		// build a description about this location
-
 		var info = new google.maps.InfoWindow({
 			content: "<div class='skate-location'>\
 				<div class='skate-location-heading'>" + lName + "</div>\
 				<div class='skate-location-description'>" + lDesc + "</div>\
-				<div class='skate-location-rating'>" + lRating + "</div>\
-				<div class='skate-location-adder'>" + aName + "</div>\
+				<div class='row'>\
+					<div class='skate-location-rating column-7'>" + lRatingAsStars + "</div>\
+					<div class='skate-location-adder column-5'>Added By: " + aName + "</div>\
+				</div>\
 			</div>"
 		});
 
@@ -142,6 +156,36 @@ function drawSkateParkData(rawData)
 		});
 	}
 
+	// now make the rest of the map clickable
+
+	// so that users can add their own markers
+	google.maps.event.addListener(map, "click", function(event){
+		userAddSkatepark(event.latLng);
+	});
+}
+
+function userAddSkatepark(location)
+{
+	// create a marker
+	var marker = new google.maps.Marker({
+		position: location,
+		map: map,
+		title: "new park"
+	});
+
+	// create a pop up
+	var request = new google.maps.InfoWindow({
+		content: "<div class='add-skate-location'>\
+			<div class='add-skate-location-heading'><input type='text' placeholder='Add title...' 'adderTitle'></div>\
+			<div class='add-skate-location-description'><textarea placeholder='Describe it...' id='adderDescription'></textarea></div>\
+			<div class='row'>\
+				<div class='add-skate-location-rating column-6'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'></div>\
+				<div class='add-skate-location-adder column-6'><input type='text' placeholder='your name' id='adderName'></div>\
+			</div>\
+		</div>"
+	});
+
+	request.open(map, marker);
 
 }
 

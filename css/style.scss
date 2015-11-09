@@ -424,29 +424,127 @@ ul
 
 .bubble:before 
 {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 25px 40px 25px 0;
-	border-color: transparent #3E7F7F;
-	display: block;
-	width: 0;
-	z-index: 0;
-	margin-top: -35px;
-	left: -45px;
-	top: 159px;
+	content: 				'';
+	position: 				absolute;
+	border-style: 			solid;
+	border-width: 			25px 40px 25px 0;
+	border-color: 			transparent #3E7F7F;
+	display: 				block;
+	width: 					0;
+	z-index: 				0;
+	margin-top:			 	-35px;
+	left: 					-45px;
+	top: 					159px;
 }
 
 .tip-line
 {
 	margin-bottom:			2%;
-	border-bottom:	1px dotted;
-	border-color: black;
+	border-bottom:			1px dotted;
+	border-color: 			black;
 }
 .tip-line:last-child
 {
-	border-bottom:	none;
+	border-bottom:			none;
 }
+
+.skate-location
+{
+
+}
+.skate-location-heading, .add-skate-location-heading
+{
+	@extend 				%normalFont;
+	color: 					black;
+	font-size: 				2.6em;
+	padding-bottom: 		10px;
+}
+
+.add-skate-location-heading input[type="text"]
+{
+	outline: 				none;
+	border: 				none;
+	@extend 				%normalFont;
+	font-size:				1.8em;
+	color: 					black;
+}
+
+.add-skate-location-adder input[type="text"]
+{
+	outline: 				none;
+	border: 				none;
+	font-family: 			'Indie Flower', cursive;
+	font-size:				1.1em;
+	color: 					black;
+}
+
+::-webkit-input-placeholder {
+	color: 					rgba(0,0,0,0.7);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	color: 					rgba(0,0,0,0.7);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	color: 					rgba(0,0,0,0.7);
+}
+
+:-ms-input-placeholder {  
+	color: 					rgba(0,0,0,0.7);
+}
+
+.skate-location-description
+{
+	font-size: 				1.4em;
+	padding-bottom: 		10px;
+}
+
+.add-skate-location-description textarea
+{
+	width: 					90%;
+	outline: 				none;
+	border: 				none;
+	font-size:				1.6em;
+	font-family: 			'Indie Flower', cursive;
+	color: 					black;
+}
+
+.skate-location-rating, .add-skate-location-rating
+{
+	float: 					left;
+}
+
+.add-skate-location
+{
+	overflow: 				hidden !important;
+}
+
+.add-skate-location-rating
+{
+	opacity: 				0.1;
+}
+
+.star-active
+{
+	opacity: 				0.9;
+}
+
+.star
+{
+	opacity:				0.8 !important;
+
+	padding-right: 			4px;
+	float: 					left;
+}
+
+.skate-location-adder, .add-skate-location-adder
+{
+	font-size: 				1.3em;
+	float:					left;
+	text-align: 			right;
+}
+
 
 @media  (max-width: $medScreen){
 
@@ -500,6 +598,54 @@ ul
 	{
 		display:none !important;
 	}
+
+	.bubble 
+	{
+		font-family: 			'Indie Flower', cursive;
+		position: 				relative;
+		width: 					30%;
+		padding: 				1%;
+		padding-top: 			4%;
+		background: 			rgba(255,255,255,0.8);
+		-webkit-border-radius: 	11px;
+		-moz-border-radius: 	11px;
+		border-radius: 			11px;
+		border: 				#3E7F7F solid 5px;
+		color:					black;
+		font-size:				1.1em;
+	}
+
+	.bubble:after 
+	{
+		content: 				'';
+		position: 				absolute;
+		border-style: 			solid;
+		border-width: 			21px 36px 21px 0;
+		border-color: 			transparent #FFFFFF;
+		display: 				block;
+		width: 					0;
+		z-index: 				1;
+		margin-top: 			107px;
+		left: 					-36px;
+		top: 					21px;
+	}
+	
+
+	.bubble:before 
+	{
+		content: 				'';
+		position: 				absolute;
+		border-style: 			solid;
+		border-width: 			25px 40px 25px 0;
+		border-color: 			transparent #3E7F7F;
+		display: 				block;
+		width: 					0;
+		z-index: 				0;
+		margin-top:			 	-35px;
+		left: 					-45px;
+		top: 					159px;
+	}
+
 }
 
 
