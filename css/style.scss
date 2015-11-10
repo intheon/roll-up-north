@@ -476,6 +476,9 @@ ul
 	font-family: 			'Indie Flower', cursive;
 	font-size:				1.1em;
 	color: 					black;
+	width: 					90%;
+	text-align: 			left;
+	float:left;
 }
 
 ::-webkit-input-placeholder {
@@ -496,7 +499,7 @@ ul
 
 .skate-location-description
 {
-	font-size: 				1.4em;
+	font-size: 				1.5em;
 	padding-bottom: 		10px;
 }
 
@@ -509,6 +512,31 @@ ul
 	font-family: 			'Indie Flower', cursive;
 	color: 					black;
 }
+
+.add-skate-location-submit input[type="button"]
+{
+	text-align:right;
+	outline: 				none;
+	border: 				none;
+	font-size:				1.4em;
+	font-family: 			'Indie Flower', cursive;
+	color: 					black;
+	padding: 				5px;
+	background: 			rgba(0,0,0,0.1);
+}
+
+.add-skate-location-submit input[type="button"]:hover
+{
+	color:					rgba(255,255,255,0.7);
+	background: 			rgba(0,0,0,0.3);
+	cursor: 				pointer;
+}
+
+.flexy
+{
+	display:flex;
+}
+
 
 .skate-location-rating, .add-skate-location-rating
 {
@@ -540,7 +568,7 @@ ul
 
 .skate-location-adder, .add-skate-location-adder
 {
-	font-size: 				1.3em;
+	font-size: 				1.4em;
 	float:					left;
 	text-align: 			right;
 }

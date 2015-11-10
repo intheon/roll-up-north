@@ -1,7 +1,6 @@
 // global... im not sure why
 var map;
 var rootUrl = "http://localhost/roll-up-north/";
-var isEditing = false;
 
 // main init
 $(document).ready(function(){
@@ -178,8 +177,7 @@ function dismissInfoWindows(arrayOfItems)
 
 function userAddSkatepark(location, currentPoints)
 {
-	if (!isEditing)
-	{
+
 		// create a marker
 		var marker = new google.maps.Marker({
 			position: location,
@@ -192,9 +190,10 @@ function userAddSkatepark(location, currentPoints)
 			content: "<div class='add-skate-location tentative'>\
 				<div class='add-skate-location-heading'><input type='text' placeholder='Add title...' 'adderTitle'></div>\
 				<div class='add-skate-location-description'><textarea placeholder='Describe it...' id='adderDescription'></textarea></div>\
-				<div class='row'>\
-					<div class='add-skate-location-rating column-6'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'><img src='../roll-up-north/img/star.png' width='24px'></div>\
-					<div class='add-skate-location-adder column-6'><input type='text' placeholder='your name' id='adderName'></div>\
+				<div class='row flexy'>\
+					<div class='add-skate-location-adder column-6'><input type='text' placeholder='Your name' id='adderName'></div>\
+					<div class='add-skate-location-rating column-4'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'></div>\
+					<div class='add-skate-location-submit column-2'><input type='button' value='Submit!' id='submitSkatepark'></div>\
 				</div>\
 			</div>"
 		});
@@ -203,23 +202,21 @@ function userAddSkatepark(location, currentPoints)
 		request.open(map, marker);
 
 		// dismiss all other info windows
-		console.log(currentPoints);
-
 		for (n = 0; n < currentPoints.length; n++)
 		{
 			currentPoints[n].info.close();
 		}
 
-
-		//currentPoints.push(request);
-
 		isEditing = true;
-	}
-	else
-	{
-		console.log("already have one open boyo");
-	}
 
+		google.maps.event.addListener(map, "click", function(event){
+			request.close();
+			marker.setMap(null);
+		});
+
+		google.maps.event.addListener(request, "closeclick", function(event){
+			marker.setMap(null);
+		});
 
 }
 
