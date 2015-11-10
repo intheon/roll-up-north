@@ -192,7 +192,13 @@ function userAddSkatepark(location, currentPoints)
 				<div class='add-skate-location-description'><textarea placeholder='Describe it...' id='adderDescription'></textarea></div>\
 				<div class='row flexy'>\
 					<div class='add-skate-location-adder column-6'><input type='text' placeholder='Your name' id='adderName'></div>\
-					<div class='add-skate-location-rating column-4'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'><img src='../roll-up-north/img/star.png' width='19px'></div>\
+					<div class='add-skate-location-rating column-4'>\
+						<div class='star-rating star-rating-1'>&#9733;</div>\
+						<div class='star-rating star-rating-2'>&#9733;</div>\
+						<div class='star-rating star-rating-3'>&#9733;</div>\
+						<div class='star-rating star-rating-4'>&#9733;</div>\
+						<div class='star-rating star-rating-5'>&#9733;</div>\
+					</div>\
 					<div class='add-skate-location-submit column-2'><input type='button' value='Submit!' id='submitSkatepark'></div>\
 				</div>\
 			</div>"
@@ -207,8 +213,7 @@ function userAddSkatepark(location, currentPoints)
 			currentPoints[n].info.close();
 		}
 
-		isEditing = true;
-
+		// dismiss stuff
 		google.maps.event.addListener(map, "click", function(event){
 			request.close();
 			marker.setMap(null);
@@ -217,6 +222,26 @@ function userAddSkatepark(location, currentPoints)
 		google.maps.event.addListener(request, "closeclick", function(event){
 			marker.setMap(null);
 		});
+
+		// attach listeners to the stars
+		$(".star-rating").mouseover(function(event){
+
+			var star = event.currentTarget.className.split(" ")[1];
+
+			var integer = star.split("-")[2];
+
+			for (s = 1; s <= integer; s++)
+			{	
+				$(".star-rating-" + s).addClass("active-star");
+			}
+
+		});
+
+		$(".star-rating").mouseout(function(event){
+
+			$(".star-rating").removeClass("active-star");
+
+		})
 
 }
 
