@@ -13,7 +13,7 @@ if(isset($_POST["location_lat"]) && isset($_POST["location_long"]) && isset($_PO
 
 	require "db_conf.php";
 
-	$payload = mysqli_query($connect,"INSERT INTO skatelocatons (location_name, location_rating, location_description, adder_name, adder_ip, location_long, location_lat) VALUES ('$location_name', '$location_rating', '$location_description', '$adder_name', '$adder_ip', '$location_long', '$location_lat')");
+	$payload = mysqli_query($connect,"INSERT INTO skatelocations (location_name, location_rating, location_description, adder_name, adder_ip, location_long, location_lat) VALUES ('$location_name', '$location_rating', '$location_description', '$adder_name', '$adder_ip', '$location_long', '$location_lat')");
 
 	echo "success";
 }

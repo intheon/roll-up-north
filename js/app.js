@@ -133,8 +133,15 @@ function drawSkateParkData(rawData)
 			lng: lLong
 		}
 
+		// add it to google map
+		var marker = new google.maps.Marker({
+			position: latlong,
+			map: map,
+			title: lName
+		});
+
 		// build a description about this location
-		var info = new google.maps.InfoWindow({
+		marker.info = new google.maps.InfoWindow({
 			content: "<div class='skate-location'>\
 				<div class='skate-location-heading'>" + lName + "</div>\
 				<div class='skate-location-description'>" + lDesc + "</div>\
@@ -145,23 +152,12 @@ function drawSkateParkData(rawData)
 			</div>"
 		});
 
-		// add it to google map
-		var marker = new google.maps.Marker({
-			position: latlong,
-			map: map,
-			title: lName
-		});
 
 		// and make the marker clickable so an infowindow appears
-		marker.addListener("click", function(){
-			info.open(map, marker);
+		google.maps.event.addListener(marker, "click", function(){
+			this.info.open(map, this);
 		});
 
-		// add it to the array so I know how many could be present
-		currentPoints.push({
-			marker: marker,
-			info: info
-		});
 	}
 
 	// allow users to add their own markers
@@ -261,7 +257,6 @@ function userAddSkatepark(location, currentPoints)
 
 
 		$("#submitSkatepark").click(function(){
-
 			var skateparkTitle = $("#adderTitle").val();
 			var skateparkDescription = $("#adderDescription").val();
 			var personName = $("#adderName").val();
@@ -277,6 +272,8 @@ function userAddSkatepark(location, currentPoints)
 			else
 			{
 				submitSkateparktoDB(location, skateparkTitle, skateparkDescription, personName, starRating);
+				request.close();
+				marker.setMap(null);
 			}
 
 		});
@@ -308,7 +305,10 @@ function submitSkateparktoDB(location, skateparkTitle, skateparkDescription, per
 		},
 		success: function(response)
 		{
-			console.log(response);
+		if (response == "success")
+			{
+				getSkateParkData();
+			}
 		}
 	});
 }

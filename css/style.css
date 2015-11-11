@@ -451,30 +451,10 @@ ul {
     font-size: 1.1em; }
 
   .bubble:after {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 21px 36px 21px 0;
-    border-color: transparent #FFFFFF;
-    display: block;
-    width: 0;
-    z-index: 1;
-    margin-top: 107px;
-    left: -36px;
-    top: 21px; }
+    display: none; }
 
   .bubble:before {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 25px 40px 25px 0;
-    border-color: transparent #3E7F7F;
-    display: block;
-    width: 0;
-    z-index: 0;
-    margin-top: -35px;
-    left: -45px;
-    top: 159px; } }
+    display: none; } }
 @media (max-width: 890px) {
   #skate-map {
     height: 74vh !important;
