@@ -188,7 +188,7 @@ function userAddSkatepark(location, currentPoints)
 		// create a pop up
 		var request = new google.maps.InfoWindow({
 			content: "<div class='add-skate-location tentative'>\
-				<div class='add-skate-location-heading'><input type='text' placeholder='Add title...' 'adderTitle'></div>\
+				<div class='add-skate-location-heading'><input type='text' placeholder='Add title...' id='adderTitle'></div>\
 				<div class='add-skate-location-description'><textarea placeholder='Describe it...' id='adderDescription'></textarea></div>\
 				<div class='row flexy'>\
 					<div class='add-skate-location-adder column-6'><input type='text' placeholder='Your name' id='adderName'></div>\
@@ -201,6 +201,7 @@ function userAddSkatepark(location, currentPoints)
 					</div>\
 					<div class='add-skate-location-submit column-2'><input type='button' value='Submit!' id='submitSkatepark'></div>\
 				</div>\
+				<div class='information-panel'></div>\
 			</div>"
 		});
 
@@ -237,11 +238,48 @@ function userAddSkatepark(location, currentPoints)
 
 		});
 
+		$(".star-rating").click(function(event){
+
+			$(".star-rating").removeClass("active-star-persistent");
+
+			var star = event.currentTarget.className.split(" ")[1];
+
+			var integer = star.split("-")[2];
+
+			for (s = 1; s <= integer; s++)
+			{	
+				$(".star-rating-" + s).addClass("active-star-persistent");
+			}
+
+		});
+
 		$(".star-rating").mouseout(function(event){
 
 			$(".star-rating").removeClass("active-star");
 
-		})
+		});
+
+
+		$("#submitSkatepark").click(function(){
+
+			var skateparkTitle = $("#adderTitle").val();
+			var skateparkDescription = $("#adderDescription").val();
+			var personName = $("#adderName").val();
+			var starRating = (function(){
+				return $(".add-skate-location-rating .active-star-persistent").length;
+			}());
+
+			if (!skateparkTitle || !skateparkDescription || !personName)
+			{
+				$(".information-panel").html("");
+				$(".information-panel").append("Please fill out all fields");
+			}
+			else
+			{
+				submitSkateparktoDB(location, skateparkTitle, skateparkDescription, personName, starRating);
+			}
+
+		});
 
 }
 
@@ -253,4 +291,24 @@ function displayLastFewSkateParks()
 function addFormEventListeners()
 {
 
+}
+
+function submitSkateparktoDB(location, skateparkTitle, skateparkDescription, personName, starRating)
+{
+	$.ajax({
+		type: "POST",
+		url: rootUrl + "php/add_skatepark.php",
+		data: {
+			location_lat: 		location.lat(),
+			location_long: 		location.lng(),
+			title: 				skateparkTitle,
+			desc: 				skateparkDescription,
+			adder: 				personName,
+			rating: 			starRating
+		},
+		success: function(response)
+		{
+			console.log(response);
+		}
+	});
 }

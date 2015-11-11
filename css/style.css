@@ -386,10 +386,17 @@ ul {
   color: #22E563;
   opacity: 1; }
 
+.active-star-persistent {
+  color: #0095D1;
+  opacity: 1; }
+
 .skate-location-adder, .add-skate-location-adder {
   font-size: 1.8em;
   float: left;
   text-align: right; }
+
+.information-panel {
+  color: black; }
 
 @media (max-width: 1100px) {
   .floatBehind {
